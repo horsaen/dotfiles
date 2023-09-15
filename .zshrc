@@ -7,7 +7,7 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+export PATH=~/go/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -81,13 +81,6 @@ plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-alias fix-screen="xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 3099x0 --rotate normal --output DP-2 --mode 1920x1080 --rate 120 --pos 0x1260 --rotate normal --output DP-3 --off --output DP-4 --primary --mode 2560x1440 --rate 144  --pos 1920x1080 --rotate normal --output DP-5 --off --output USB-C-0 --off"
-
-alias ls="lsd"
-
-alias ssh="kitty +kitten ssh"
-
-alias pen="xsetwacom set 'HID 256c:006d Pen stylus' MapToOutput HEAD-0"
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -113,34 +106,22 @@ alias pen="xsetwacom set 'HID 256c:006d Pen stylus' MapToOutput HEAD-0"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH=$PATH:/Users/horsaen/.spicetify
 
 # pnpm
-export PNPM_HOME="/home/horsaen/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+export PNPM_HOME="/Users/horsaen/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
 # pnpm end
-#
-# fcitx5 stuff
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-export GLFW_IM_MODULE=ibus
 
-# sdrpp
-export PIPEWIRE_NOJACK=1
+# bun completions
+[ -s "/Users/horsaen/.bun/_bun" ] && source "/Users/horsaen/.bun/_bun"
 
-# cmake
-export CMAKE_ROOT=/usr/share/cmake
-
-# tabtab source for electron-forge package
-# uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[[ -f /ssd/.pnpm-store/v3/tmp/dlx-513809/node_modules/.pnpm/tabtab@2.2.2/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /ssd/.pnpm-store/v3/tmp/dlx-513809/node_modules/.pnpm/tabtab@2.2.2/node_modules/tabtab/.completions/electron-forge.zsh
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
